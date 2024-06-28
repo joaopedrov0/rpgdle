@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=MedievalSharp&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root{
+    --color-1: #000000;
+    --color-2: #291528;
+    --color-3: #3A3E3B;
+    --color-4: #F0EFF4;
+    --color-5: #9E829C;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--color-4);
+    font-family: "Libre Baskerville", serif;
+}
+
+h1, h2, h3, h4, h5, h6, .medieval{
+    font-family: "MedievalSharp", cursive;
+}
+
+header{
+    background-color: var(--color-2);
+    color: var(--color-4);
+    width: 100vw;
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-area{
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-area input{
+    border: 3px solid var(--color-5);
+    background-color: transparent;
+    height: 35px;
+    width: 170px;
+    padding: 0 5px;
+    font-family: "Playfair Display", serif;
+    border-radius: 3px;
+}
+.button{
+    color: var(--color-4);
+    background-color: var(--color-2);
+    height: 35px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    border-radius: 3px;
+
+    transition: all ease 200ms;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: var(--color-5);
+}
+
+.result-area{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.result-area > *{
+    margin-bottom: 5px;
+}
+
+.head-table{
+    width: clamp(90vw, 960px, 95vw);
+    border: 3px solid var(--color-5);
+    color: var(--color-3);
+    display: flex;
+    padding: 3px;
+
+    justify-content: space-between;
+
+    border-radius: 5px;
+}
+.head-table > *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: clamp(90vw, 960px, 95vw);
+    border: 3px solid var(--color-5);
+    color: var(--color-3);
+    display: flex;
+    padding: 3px;
+
+    justify-content: space-between;
+
+    border-radius: 5px;
+}
+.card > *, .head-table > *{
+    width: 12%;
+}
+
+.card img{
+    width: 100%;
+}
+
+.card .picture{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .picture .name{
+    background-color: var(--color-2);
+    color: var(--color-4);
+    padding: 7px 9px;
+    position: absolute;
+    opacity: 0.0;
+    border-radius: 3px;
+}
+
+.card .picture:hover .name {
+    opacity: 0.8;
+}
+
+.gender, .race, .class, .local, .age, .status, .classification{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(220, 220, 220, 0.7);
+    border-radius: 5px;
+}
+
+.card span {
+    background-color: var(--color-2);
+    color: var(--color-4);
+    padding: 5px 7px;
+    margin: 3px;
+}
