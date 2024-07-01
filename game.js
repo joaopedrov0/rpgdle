@@ -67,6 +67,7 @@ const refProps = {
         "Altus Plato", // 19
         "Kataha", // 20
         "Desconhecido", // 21
+        "Gerity", // 22
     ],
     status: [
         "Vivo", // 0
@@ -468,102 +469,242 @@ const characters = {
     },
     Maria: {
         name: "Maria",
-        description: "A Ladina",
-        token: "Maria.png"
+        gender: 1,
+        race: 0,
+        class: [1],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Maria.png",
+        code: "1-0-1-21-0-1"
     },
     Niberius: {
         name: "Niberius",
-        description: "O paladino da vingança",
-        token: "Pai_do_Arth.png"
+        gender: 0,
+        race: 5,
+        class: [2],
+        local: 4,
+        age: "Desconhecido",
+        status: 1,
+        classification: 1,
+        token: "Niberius.png",
+        code: "0-5-2-4-1-1"
     },
     RhannyGallahar: {
         name: "Rhanny Gallahar",
-        description: "A prodígia de Pípiltin",
-        token: "Rhanny Gallahar.png"
+        gender: 1,
+        race: 0,
+        class: [3, 5, 6],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Rhanny Gallahar.png",
+        code: "1-0-3.5.6-10-0-1"
     },
     Sif: {
         name: "Sif",
-        description: "???",
-        token: "Sif.png"
+        gender: 1,
+        race: 0,
+        class: [24],
+        local: 10,
+        age: "6",
+        status: 0,
+        classification: 1,
+        token: "Sif.png",
+        code: "1-0-24-10-0-1"
     },
     Callan: {
         name: "Callan",
-        description: "???",
-        token: "Callan.png"
+        gender: 0,
+        race: 0,
+        class: [3, 22],
+        local: 13,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Callan.png",
+        code: "0-0-3.22-13-0-1"
     },
     Emma: {
-        name: "Emma",
-        description: "A Mestra Arcana de Metalurgis",
-        token: "Emma.png"
+        name: "Emma Ayers",
+        gender: 1,
+        race: 0,
+        class: [3, 10],
+        local: 13,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Emma.png",
+        code: "1-0-3.10-13-0-1"
     },
     Volga: {
         name: "Volga",
-        description: "O Rei dos Dragões",
-        token: "Volga.png"
+        gender: 0,
+        race: 6,
+        class: [10, 15],
+        local: 6,
+        age: "Desconhecido",
+        status: 1,
+        classification: 1,
+        token: "Volga.png",
+        code: "0-6-10.15-6-1-1"
     },
     Alduim: {
         name: "Alduim",
-        description: "O Dragão Branco Ancião",
-        token: "Alduim.png"
+        gender: 0,
+        race: 6,
+        class: [15],
+        local: 10,
+        age: "762",
+        status: 0,
+        classification: 1,
+        token: "Alduim.png",
+        code: "0-6-15-10-0-1"
     },
     Niti: {
         name: "Niti",
-        description: "A Guardiã da Justiça",
-        token: "Niti.png"
+        gender: 1,
+        race: 1,
+        class: [20],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Niti.png",
+        code: "1-1-20-10-0-1"
     },
     Nayahath: {
         name: "Nayahath",
-        description: "A Entidade do Arcanismo",
-        token: "Nayahath.png"
+        gender: 3,
+        race: 1,
+        class: [3, 4, 5, 6, 20],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Nayahath.png",
+        code: "0-0-8-21-0-1"
     },
     Kataha: {
         name: "Kataha",
-        description: "A Mestra das Lâminas",
-        token: "Kataha.png"
+        gender: 1,
+        race: 0,
+        class: [0, 1, 10],
+        local: 20,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Kataha.png",
+        code: "1-0-0.1.10-20-0-1"
     },
     Parvatam: {
         name: "Parvatam",
-        description: "O Guardião das Montanhas",
-        token: "Parvatam.png"
+        gender: 0,
+        race: 1,
+        class: [20],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Parvatam.png",
+        code: "0-1-20-10-0-1"
     },
     Acalhueltecani: {
         name: "Acalhueltecani",
-        description: "O Guia de Mictlan",
-        token: "Acalhueltecani.png"
+        gender: 2,
+        race: 8,
+        class: [15],
+        local: 12,
+        age: "Desconhecido",
+        status: 3,
+        classification: 2,
+        token: "Acalhueltecani.png",
+        code: "2-8-15-12-3-2"
     },
     Illidan: {
         name: "Illidan",
-        description: "O elfo que finalizou o Volga",
-        token: "Illidan.png"
+        gender: 0,
+        race: 3,
+        class: [0, 1],
+        local: 22,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Illidan.png",
+        code: "0-3-0.1-22-0-0"
     },
     Tyrania: {
         name: "Tyrania",
-        description: "O Demônio de Mictlan",
-        token: "Tyrania.png"
+        gender: 2,
+        race: 8,
+        class: [15],
+        local: 12,
+        age: "Desconhecido",
+        status: 3,
+        classification: 2,
+        token: "Tyrania.png",
+        code: "2-8-15-12-3-2"
     },
     Laura: {
         name: "Laura",
-        description: "A bibliotecária de Pípiltin",
-        token: "Laura.png"
+        gender: 1,
+        race: 0,
+        class: [11],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Laura.png",
+        code: "1-0-11-10-0-1"
     },
     Nosferato: {
         name: "Nosferato",
-        description: "O alquimista de Pípiltin",
-        token: "Nosferato.png"
+        gender: 0,
+        race: 0,
+        class: [5],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Nosferato.png",
+        code: "0-0-5-10-0-0"
     },
     Syneidisis: {
         name: "Syneídisis",
-        description: "O Ego",
-        token: "Syneídisis.png"
+        gender: 3,
+        race: 1,
+        class: [20],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Syneídisis.png",
+        code: "3-1-20-21-0-1"
     },
     Joana: {
         name: "Joana",
-        description: "A curandeira de Pípiltin",
-        token: "Joana.png"
+        gender: 1,
+        race: 0,
+        class: [19],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Joana.png",
+        code: "1-0-19-10-0-1"
     },
     Wallace: {
         name: "Wallace",
-        description: "???",
-        token: "Wallace.png"
+        gender: 0,
+        race: 0,
+        class: [1],
+        local: 22,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Wallace.png",
+        code: "0-0-1-22-0-1"
     }
 }
