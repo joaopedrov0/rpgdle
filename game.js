@@ -708,3 +708,37 @@ const characters = {
         code: "0-0-1-22-0-1"
     }
 }
+
+
+function GenerateCard(character){
+    let cardArea = document.querySelector(".result-area")
+
+    let charCard = character
+    let charInfo = characters[charCard]
+
+    let classList = ''
+
+    console.log(charInfo)
+
+    for(classes of charInfo.class){
+        classList += `<span>${refProps.class[classes]}</span>`
+    }
+    
+
+    cardArea.innerHTML += `
+    <div class="card">
+                
+        <div class="picture">
+            <div class="name">${charInfo.name}</div>
+            <img src="./img/${charInfo.token}" alt="${charInfo.name} token">
+        </div>
+        <div class="gender"><span>${refProps.gender[charInfo.gender]}</span></div>
+        <div class="race"><span>${refProps.race[charInfo.race]}</span></div>
+        <div class="class">${classList}</div>
+        <div class="local"><span>${refProps.local[charInfo.local]}</span></div>
+        <div class="age"><span>${charInfo.age}</span></div>
+        <div class="status"><span>${refProps.status[charInfo.status]}</span></div>
+        <div class="classification"><span>${refProps.classification[charInfo.classification]}</span></div>
+    </div>
+    `
+}
