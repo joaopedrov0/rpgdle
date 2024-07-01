@@ -12,6 +12,9 @@ const refProps = {
         "Elfo", // 3
         "Meio-elfo", // 4
         "Draconato", // 5
+        "Dragão", // 6
+        "Desconhecido", // 7
+        "Demônio", // 8
     ],
     class: [
         "Guerreiro", // 0
@@ -34,7 +37,12 @@ const refProps = {
         "Clérigo", // 17
         "Comerciante", // 18
         "Curandeiro", // 19
-        "Entidade","" // 20
+        "Entidade", // 20
+        "Bardo", // 21
+        "Arqueólogo", // 22
+        "Bruxo", // 23
+        "Desconhecido", // 24
+        "Ferreiro", // 25
     ],
     local: [
         "Farron", // 0
@@ -58,11 +66,13 @@ const refProps = {
         "Monte Kali", // 18
         "Altus Plato", // 19
         "Kataha", // 20
+        "Desconhecido", // 21
     ],
     status: [
         "Vivo", // 0
         "Morto", // 1
         "Desconhecido", // 2
+        "Não se aplica", // 3
     ],
     classification: [
         "Player", // 0
@@ -160,115 +170,248 @@ const characters = {
         name: "Irene",
         gender: 1,
         race: 0,
-        class: [0, 16],
+        class: [19],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Irene.png",
+        code: "1-0-19-10-0-1"
+    },
+    Isabelle: {
+        name: "Isabelle",
+        gender: 1,
+        race: 6,
+        class: [15, 21],
+        local: 15,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Isabelle.png",
+        code: "1-6-15.21-15-0-1"
+    },
+    Ivor: {
+        name: "Ivor",
+        gender: 0,
+        race: 0,
+        class: [3],
+        local: 16,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Ivor.png",
+        code: "0-0-3-16-0-0"
+    },
+    JackCooper: {
+        name: "Jack Cooper",
+        gender: 0,
+        race: 0,
+        class: [0, 23],
+        local: 14,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Jack_Cooper.png",
+        code: "0-0-3-16-0-0"
+    },
+    James: {
+        name: "James",
+        gender: 0,
+        race: 0,
+        class: [16],
+        local: 11,
+        age: "Desconhecido",
+        status: 2,
+        classification: 1,
+        token: "James.png",
+        code: "0-0-16-11-2-1"
+    },
+    Jane: {
+        name: "Jane",
+        gender: 1,
+        race: 0,
+        class: [1, 16],
         local: 11,
         age: "Desconhecido",
         status: 0,
         classification: 1,
-        token: "Hakon.png",
-        code: "0-0-0.16-11-0-1"
-    },
-    Isabelle: {
-        name: "Isabelle",
-        description: "A barda dracônica",
-        token: "Isabelle.png"
-    },
-    Ivor: {
-        name: "Ivor",
-        description: "O mago de Piphet",
-        token: "Ivor.png"
-    },
-    JackCooper: {
-        name: "Jack Cooper",
-        description: "O caçador de Yharnam",
-        token: "Jack_Cooper.png"
-    },
-    James: {
-        name: "James",
-        description: "O capitão",
-        token: "James.png"
-    },
-    Jane: {
-        name: "Jane",
-        description: "A pirata",
-        token: "Jane.png"
+        token: "Jane.png",
+        code: "1-0-1.16-11-0-1"
     },
     Lina: {
         name: "Lina",
-        description: "A ladina de ???",
-        token: "Lina.png"
+        gender: 1,
+        race: 0,
+        class: [1],
+        local: 14,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Lina.png",
+        code: "1-0-1-14-0-0"
     },
     LordeDoSubmundo: {
         name: "Lorde do Submundo",
-        description: "O Lorde do Submundo",
-        token: "Lorde_do_submundo.png"
+        gender: 0,
+        race: 7,
+        class: [24],
+        local: 4,
+        age: "Desconhecido",
+        status: 2,
+        classification: 1,
+        token: "Lorde_do_submundo.png",
+        code: "0-7-24-4-2-1"
     },
     Lucas: {
         name: "Lucas",
-        description: "O caçador de Pípiltin",
-        token: "Lucas.png"
+        gender: 0,
+        race: 0,
+        class: [13],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Lucas.png",
+        code: "0-0-13-10-0-0"
     },
     Magnus: {
         name: "Magnus",
-        description: "O Rei de Urgressus",
-        token: "Magnus.png"
+        gender: 0,
+        race: 0,
+        class: [0, 10],
+        local: 9,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Magnus.png",
+        code: "0-0-0.10-9-0-0"
     },
     Mary: {
         name: "Mary",
-        description: "A pirata pistoleira",
-        token: "Mary.png"
+        gender: 1,
+        race: 0,
+        class: [1, 16],
+        local: 11,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Mary.png",
+        code: "1-0-1.16-11-0-1"
     },
     Matiza: {
         name: "Matiza",
-        description: "O campeão da velha guarda",
-        token: "Matiza.png"
+        gender: 0,
+        race: 0,
+        class: [9, 25],
+        local: 13,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Matiza.png",
+        code: "0-0-9.25-13-0-0"
     },
     Rebeca: {
         name: "Rebeca",
-        description: "A feiticeira",
-        token: "Rebeca.png"
+        gender: 1,
+        race: 0,
+        class: [4],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Rebeca.png",
+        code: "1-0-4-21-0-0"
     },
     Sabnock: {
         name: "Sabnock",
-        description: "???",
-        token: "Sabnock.png"
+        gender: 0,
+        race: 0,
+        class: [24],
+        local: 21,
+        age: "Desconhecido",
+        status: 2,
+        classification: 0,
+        token: "Sabnock.png",
+        code: "0-0-24-21-2-0"
     },
     Spamton: {
         name: "Spamton",
-        description: "O familiar de Jack Cooper",
-        token: "Spamton.png"
+        gender: 0,
+        race: 7,
+        class: [15],
+        local: 12,
+        age: "Desconhecido",
+        status: 2,
+        classification: 0,
+        token: "Spamton.png",
+        code: "0-7-15-12-2-0"
     },
     Spike: {
-        name: "Spike",
-        description: "Demônio de Mictlan",
-        token: "Spike.png"
+        name: "Spike (Uitstli)",
+        gender: 2,
+        race: 8,
+        class: [15],
+        local: 12,
+        age: "Desconhecido",
+        status: 3,
+        classification: 2,
+        token: "Spike.png",
+        code: "2-8-15-12-3-2"
     },
     Tyrion: {
         name: "Tyrion",
-        description: "O encantador de Pípiltin",
-        token: "Tyrion.png"
+        gender: 0,
+        race: 0,
+        class: [6, 7],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Tyrion.png",
+        code: "0-0-6.7-10-0-0"
     },
     Willian: {
         name: "Willian",
-        description: "O paladino misterioso",
-        token: "Willian.png"
+        gender: 0,
+        race: 0,
+        class: [2],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Willian.png",
+        code: "0-0-2-21-0-1"
     },
     Yareth: {
         name: "Yareth",
-        description: "O mago de sangue",
-        token: "Yareth.png"
+        gender: 0,
+        race: 0,
+        class: [3],
+        local: 2,
+        age: "27",
+        status: 0,
+        classification: 0,
+        token: "Yareth.png",
+        code: "0-0-3-2-0-0"
     },
     Zotikotita: {
         name: "Zotikotita",
-        description: "A Entidade da Vida",
-        token: "Zotikotita.png"
+        gender: 3,
+        race: 1,
+        class: [20],
+        local: 21,
+        age: "Desconhecido",
+        status: 3,
+        classification: 1,
+        token: "Zotikotita.png",
+        code: "3-1-20-21-3-1"
     },
     Avna: {
         name: "Avna",
         description: "Os dez braços direitos do Lorde",
         token: "Avna.png"
     },
-    Bellus: {
+    Bellus: { // ! token ta como .jpg
         name: "Bellus",
         description: "A máscara de Celestia",
         token: "Bellus.jpg"
