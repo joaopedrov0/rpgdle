@@ -742,3 +742,16 @@ function GenerateCard(character){
     </div>
     `
 }
+
+function GenerateList(){
+    for(key in characters){
+        console.log(`${key}: ${characters[key].name}`)
+    }
+}
+
+
+// tasks
+
+// gerar lista pro input
+// criar mecânica de selecionar personagem aleatóriamente
+// exibir comparativo do personagem escolido e o sortido
