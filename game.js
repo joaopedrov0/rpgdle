@@ -408,28 +408,63 @@ const characters = {
     },
     Avna: {
         name: "Avna",
-        description: "Os dez braços direitos do Lorde",
-        token: "Avna.png"
+        gender: 1,
+        race: 7,
+        class: [24],
+        local: 4,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Avna.png",
+        code: "1-7-24-4-0-1"
     },
     Bellus: { // ! token ta como .jpg
         name: "Bellus",
-        description: "A máscara de Celestia",
-        token: "Bellus.jpg"
+        gender: 1,
+        race: 7,
+        class: [24],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Bellus.jpg",
+        code: "1-7-24-21-0-1"
     },
     Berriel: {
         name: "Berriel",
-        description: "O demônio brincalhão",
-        token: "Berrial.png"
+        gender: 0,
+        race: 7,
+        class: [24],
+        local: 4,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Berriel.png",
+        code: "0-7-24-4-0-1"
     },
     Boris: {
         name: "Boris",
-        description: "O Capitão Brasil",
-        token: "Boris.png"
+        gender: 0,
+        race: 0,
+        class: [7],
+        local: 0,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Boris.png",
+        code: "0-0-7-0-0-1"
     },
     Luke: {
         name: "Luke",
-        description: "O homem que não faz flexão, ele empurra a terra para baixo",
-        token: "Luke.png"
+        gender: 0,
+        race: 0,
+        class: [8],
+        local: 21,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Luke.png",
+        code: "0-0-8-21-0-1"
     },
     Maria: {
         name: "Maria",
