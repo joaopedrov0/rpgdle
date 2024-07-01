@@ -1,49 +1,172 @@
+const refProps = {
+    gender: [
+        "Homem", // 0
+        "Mulher",  // 1
+        "Indefinido", // 2
+        "Neutro" // 3
+    ],
+    race: [
+        "Humano", // 0
+        "Divindade", // 1
+        "Tiefling", // 2
+        "Elfo", // 3
+        "Meio-elfo", // 4
+        "Draconato", // 5
+    ],
+    class: [
+        "Guerreiro", // 0
+        "Ladino", // 1
+        "Paladino", // 2
+        "Mago", // 3
+        "Feiticeiro", // 4
+        "Alquimista", // 5
+        "Encantador", // 6
+        "Druida", // 7
+        "Monge", // 8
+        "Bárbaro", // 9
+        "Político", // 10
+        "Bibliotecário", // 11
+        "Taverneiro", // 12
+        "Caçador", // 13
+        "Pescador", // 14
+        "Criatura", // 15
+        "Pirata", // 16
+        "Clérigo", // 17
+        "Comerciante", // 18
+        "Curandeiro", // 19
+        "Entidade","" // 20
+    ],
+    local: [
+        "Farron", // 0
+        "Eagle", // 1
+        "Vale dos Dolvys", // 2
+        "LonLon", // 3
+        "Local do Acidente", // 4
+        "Sanctus", // 5
+        "Montanha da Morte", // 6
+        "Wezer", // 7
+        "Titânia", // 8
+        "Urgressus", // 9
+        "Pípiltin", // 10
+        "Haghnark", // 11
+        "Mictlan", // 12
+        "Metalurgis", // 13
+        "Yharnam", // 14
+        "Carvalho Negro", // 15
+        "Piphet", // 16
+        "Cadeia do Gigante", // 17
+        "Monte Kali", // 18
+        "Altus Plato", // 19
+        "Kataha", // 20
+    ],
+    status: [
+        "Vivo", // 0
+        "Morto", // 1
+        "Desconhecido", // 2
+    ],
+    classification: [
+        "Player", // 0
+        "NPC", // 1
+        "Monstro", // 2
+    ],
+}
+
 const characters = {
     Astaroth: {
         name: "Astaroth",
-        gender: "Homem",
-        race: "Draconato",
-        class: ["Guerreiro", "Feiticeiro"],
-        local: "Local do Acidente",
+        gender: 0,
+        race: 5,
+        class: [0, 4],
+        local: 4,
         age: "17",
-        status: "Vivo",
-        classification: "Player",
-        token: "Astaroth.png"
+        status: 0,
+        classification: 0,
+        token: "Astaroth.png",
+        code: "0-5-0.4-4-0-0"
     },
     Baltazar: {
         name: "Baltazar",
-        description: "O Paladino",
-        token: "Baltazar.png"
+        gender: 0,
+        race: 2,
+        class: [2],
+        local: 8,
+        age: "Desconhecido",
+        status: 0,
+        classification: 0,
+        token: "Baltazar.png",
+        code: "0-2-2-8-0-0"
     },
     Cadman: {
         name: "Cadman",
-        description: "Comerciante de Pípiltin",
-        token: "Cadman.png"
+        gender: 0,
+        race: 0,
+        class: [18],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Cadman.png",
+        code: "0-0-18-10-0-1"
     },
     Diego: {
         name: "Diego",
-        description: "O Inventor da Azzip",
-        token: "Diego.png"
+        gender: 0,
+        race: 0,
+        class: [12],
+        local: 10,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Diego.png",
+        code: "0-0-12-10-0-1"
     },
     Dorian: {
         name: "Dorian",
-        description: "O Curandeiro de Pípiltin",
-        token: "Dorian.png"
+        gender: 0,
+        race: 0,
+        class: [7, 19],
+        local: 10,
+        age: "Desconhecido",
+        status: 2,
+        classification: 0,
+        token: "Dorian.png",
+        code: "0-0-7.19-10-2-0"
     },
     Hakon: {
         name: "Hakon",
-        description: "O Mestre Místico de Pípiltin",
-        token: "Hakon.png"
+        gender: 0,
+        race: 0,
+        class: [3, 5, 6],
+        local: 10,
+        age: "Desconhecido",
+        status: 1,
+        classification: 1,
+        token: "Hakon.png",
+        code: "0-0-3.5.6-10-1-1"
     },
     Henri: {
         name: "Henri",
-        description: "O Braço direito de James",
-        token: "Henri.png"
+        gender: 0,
+        race: 0,
+        class: [0, 16],
+        local: 11,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Hakon.png",
+        code: "0-0-0.16-11-0-1"
     },
     Irene: {
         name: "Irene",
-        description: "A curandeira misteriosa",
-        token: "Irene.png"
+        gender: 1,
+        race: 0,
+        class: [0, 16],
+        local: 11,
+        age: "Desconhecido",
+        status: 0,
+        classification: 1,
+        token: "Hakon.png",
+        code: "0-0-0.16-11-0-1"
     },
     Isabelle: {
         name: "Isabelle",
