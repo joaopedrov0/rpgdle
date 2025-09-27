@@ -1,0 +1,752 @@
+
+Caminho da imagem: /img/Acalhueltecani.png
+Nome do personagem: Acalhueltecani
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Desconhecido
+Região: Mictlan
+Campanha: Lia, A Falha Ancestral
+
+Caminho da imagem: /img/Aegon.png
+Nome do personagem: Aegon Astrea
+Gênero: Masculino
+Espécie: Elfo
+Classes: Guerreiro
+Região: Vilarejos Tradicionais de Couatl
+Campanha: Lia
+
+Caminho da imagem: /img/Alduim.png
+Nome do personagem: Alduim
+Gênero: Masculino
+Espécie: Dragão
+Classes: Desconhecido
+Região: Monte Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Alice.png
+Nome do personagem: Alice
+Gênero: Feminino
+Espécie: Humano
+Classes: Mago
+Região: Vale dos Dolvys
+Campanha: Epifania
+
+Caminho da imagem: /img/Ana Clara.png
+Nome do personagem: Ana Clara
+Gênero: Feminino
+Espécie: Humano
+Classes: Guerreiro
+Região: Carvalho Negro
+Campanha: Lia
+
+Caminho da imagem: /img/Androssa.png
+Nome do personagem: Androssa
+Gênero: Desconhecido
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Apali.png
+Nome do personagem: Apali
+Gênero: Masculino
+Espécie: Humano
+Classes: Dobrador de Fogo
+Região: Desconhecido
+Campanha: Avatar - A Procura Mundial
+
+Caminho da imagem: /img/Asmodeus.png
+Nome do personagem: Asmodeus
+Gênero: Masculino
+Espécie: Diabo
+Classes: Desconhecido
+Região: Nove Infernos de Baator
+Campanha: Lia
+
+
+Caminho da imagem: /img/Astaroth.png
+Nome do personagem: Astaroth
+Gênero: Masculino
+Espécie: Draconato
+Classes: Guerreiro
+Região: Local do Acidente
+Campanha: Epifania
+
+Caminho da imagem: /img/Atlakamachtili.png
+Nome do personagem: Atlakamachtili
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Mictlan
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Avna.png
+Nome do personagem: Avna
+Gênero: Feminino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Baltazar.png
+Nome do personagem: Baltazar
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Paladino
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Bellus.jpg
+Nome do personagem: Bellus
+Gênero: Feminino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Berrial.png
+Nome do personagem: Berrial
+Gênero: Masculino
+Espécie: Demônio
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Bestial de Sangue.png
+Nome do personagem: Bestial de Sangue
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Boris.png
+Nome do personagem: Boris
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Druida
+Região: Farron
+Campanha: Epifania
+
+Caminho da imagem: /img/Bryana.png
+Nome do personagem: Bryana
+Gênero: Feminino
+Espécie: Humano
+Classes: Druida
+Região: Carvalho Negro
+Campanha: Lia
+
+
+Caminho da imagem: /img/Cadman.png
+Nome do personagem: Cadman
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Callan.png
+Nome do personagem: Callan
+Gênero: Masculino
+Espécie: Humano
+Classes: Mago
+Região: Metalurgis
+Campanha: Lia
+
+Caminho da imagem: /img/Comandante Metalurgis.png
+Nome do personagem: Comandante Metalurgis
+Gênero: Masculino
+Espécie: Humano
+Classes: Guerreiro
+Região: Metalurgis
+Campanha: Lia
+
+Caminho da imagem: /img/Cyborg.png
+Nome do personagem: Cyborg
+Gênero: Desconhecido
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Dario.png
+Nome do personagem: Dario
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Urgressus
+Campanha: Epifania
+
+Caminho da imagem: /img/Diego.png
+Nome do personagem: Diego
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Dorian.png
+Nome do personagem: Dorian
+Gênero: Masculino
+Espécie: Humano
+Classes: Druida
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Eillen.png
+Nome do personagem: Eillen
+Gênero: Feminino
+Espécie: Elfo
+Classes: Desconhecido
+Região: Farron
+Campanha: Epifania
+
+Caminho da imagem: /img/Emma.png
+Nome do personagem: Emma Ayers
+Gênero: Feminino
+Espécie: Humano
+Classes: Mago
+Região: Metalurgis
+Campanha: Lia
+
+
+Caminho da imagem: /img/Enpap.png
+Nome do personagem: Enpap
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Fafnir.png
+Nome do personagem: Fãfnir
+Gênero: Masculino
+Espécie: Dragão
+Classes: Desconhecido
+Região: Gyrak, Atlas VI, Yalthar
+Campanha: Lia
+
+
+Caminho da imagem: /img/Falkon.png
+Nome do personagem: Falkon
+Gênero: Masculino
+Espécie: Humano
+Classes: Mago
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Fiora.png
+Nome do personagem: Fiora
+Gênero: Feminino
+Espécie: Humano
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Ghanzo.png
+Nome do personagem: Ghanzo
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Yalthar
+Campanha: O Ventre
+
+Caminho da imagem: /img/Gorgon.png
+Nome do personagem: Gorgon
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Yalthar
+Campanha: O Ventre
+
+Caminho da imagem: /img/Gorila.png
+Nome do personagem: Gorila
+Gênero: Desconhecido
+Espécie: Gorila
+Classes: Criatura
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Griffton.png
+Nome do personagem: Griffton
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Farron
+Campanha: Epifania
+
+Caminho da imagem: /img/Hakon.png
+Nome do personagem: Hakon
+Gênero: Masculino
+Espécie: Humano
+Classes: Mago
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Hauris.png
+Nome do personagem: Hauris
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Henri.png
+Nome do personagem: Henri
+Gênero: Masculino
+Espécie: Humano
+Classes: Guerreiro
+Região: Haghnark, Pípiltin
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Hylia.png
+Nome do personagem: Hylia
+Gênero: Feminino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Ichkapixki.png
+Nome do personagem: Ichkapixki
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Mictlan
+Campanha: Lia, A Falha Ancestral
+
+
+Caminho da imagem: /img/Illidan.png
+Nome do personagem: Illidan
+Gênero: Masculino
+Espécie: Elfo
+Classes: Ladino, Guerreiro
+Região: Gerity
+Campanha: Epifania
+
+Caminho da imagem: /img/Irene.png
+Nome do personagem: Irene
+Gênero: Feminino
+Espécie: Humano
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Isabelle.png
+Nome do personagem: Isabelle
+Gênero: Feminino
+Espécie: Dragão
+Classes: Bardo
+Região: Carvalho Negro
+Campanha: Lia
+
+Caminho da imagem: /img/Ivor.png
+Nome do personagem: Ivor
+Gênero: Masculino
+Espécie: Humano
+Classes: Mago
+Região: Piphet
+Campanha: Lia
+
+Caminho da imagem: /img/Jack Cooper.png
+Nome do personagem: Jack Cooper
+Gênero: Masculino
+Espécie: Humano
+Classes: Guerreiro
+Região: Yharnam
+Campanha: Lia
+
+
+Caminho da imagem: /img/James.png
+Nome do personagem: Capitão James
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Haghnark
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Jane.png
+Nome do personagem: Jane Gunnarsson Khirt
+Gênero: Feminino
+Espécie: Humano
+Classes: Ladino
+Região: Haghnark
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Joana.png
+Nome do personagem: Joana
+Gênero: Feminino
+Espécie: Humano
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Kaira.png
+Nome do personagem: Kaira
+Gênero: Feminino
+Espécie: Humano
+Classes: Dobrador de Água
+Região: Cidade República
+Campanha: Avatar - A Procura Mundial
+
+Caminho da imagem: /img/Kama de Kataha.png
+Nome do personagem: Kama de Kataha
+Gênero: Feminino
+Espécie: Humano
+Classes: Guerreiro, Ladino
+Região: Kataha
+Campanha: Lia
+
+Caminho da imagem: /img/Kataha.png
+Nome do personagem: Kataha
+Gênero: Feminino
+Espécie: Humano
+Classes: Guerreiro, Ladino
+Região: Kataha
+Campanha: Lia, A Falha Ancestral
+
+
+Caminho da imagem: /img/Keth.png
+Nome do personagem: Keth
+Gênero: Masculino
+Espécie: Humano
+Classes: Ladino
+Região: Pípiltin
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Khaos.png
+Nome do personagem: Khaos
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Kotetsu.png
+Nome do personagem: Kotetsu
+Gênero: Masculino
+Espécie: Humano
+Classes: Guerreiro
+Região: Kataha, Vilarejos Tradicionais de Couatl
+Campanha: Lia
+
+
+Caminho da imagem: /img/Laura.png
+Nome do personagem: Laura
+Gênero: Feminino
+Espécie: Humano
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Lina.png
+Nome do personagem: Lina
+Gênero: Feminino
+Espécie: Humano
+Classes: Ladino
+Região: Yharnam
+Campanha: Lia
+
+Caminho da imagem: /img/Lioveti.png
+Nome do personagem: Lioveti
+Gênero: Masculino
+Espécie: Lobo
+Classes: Criatura
+Região: Metalurgis
+Campanha: Lia
+
+Caminho da imagem: /img/Lorde_do_submundo.png
+Nome do personagem: Lorde do Submundo
+Gênero: Desconhecido
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Lucas.png
+Nome do personagem: Lucas
+Gênero: Masculino
+Espécie: Humano
+Classes: Ladino
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Luke.png
+Nome do personagem: Luke
+Gênero: Masculino
+Espécie: Humano
+Classes: Monge
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Maaldir.png
+Nome do personagem: Maaldir
+Gênero: Masculino
+Espécie: Humano
+Classes: Doom Shaper
+Região: Haghnark
+Campanha: Lia
+
+Caminho da imagem: /img/Magnus.png
+Nome do personagem: Magnus
+Gênero: Masculino
+Espécie: Humano
+Classes: Guerreiro
+Região: Urgressus
+Campanha: Epifania
+
+Caminho da imagem: /img/Maria.png
+Nome do personagem: Maria
+Gênero: Feminino
+Espécie: Humano
+Classes: Ladino
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Markrus.png
+Nome do personagem: Markrus
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Local do Acidente
+Campanha: Epifania
+
+Caminho da imagem: /img/Mary.png
+Nome do personagem: Mary Leifsson Kari
+Gênero: Feminino
+Espécie: Humano
+Classes: Ladino
+Região: Haghnark
+Campanha: A Falha Ancestral, Lia
+
+
+Caminho da imagem: /img/Matiza.png
+Nome do personagem: Matiza
+Gênero: Masculino
+Espécie: Humano
+Classes: Bárbaro
+Região: Metalurgis
+Campanha: Lia
+
+Caminho da imagem: /img/Melina.png
+Nome do personagem: Melina
+Gênero: Feminino
+Espécie: Couatl
+Classes: Desconhecido
+Região: Vilarejos tradicionais de Couatl
+Campanha: Lia
+
+Caminho da imagem: /img/Morfeu.png
+Nome do personagem: Morfeu
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Vilarejos tradicionais de Couatl
+Campanha: O Ventre
+
+
+Caminho da imagem: /img/Morgan.png
+Nome do personagem: Morgan
+Gênero: Masculino
+Espécie: Humano
+Classes: Feiticeiro
+Região: Vilarejos tradicionais de Couatl
+Campanha: Lia
+
+Caminho da imagem: /img/Nayahath.png
+Nome do personagem: Nayahath
+Gênero: Feminino
+Espécie: Entidade
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: Lia, A Falha Ancestral, O Ventre
+
+
+Caminho da imagem: /img/Niti.png
+Nome do personagem: Niti
+Gênero: Feminino
+Espécie: Entidade
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+
+Caminho da imagem: /img/Nog Freecs.png
+Nome do personagem: Nog Freecs
+Gênero: Masculino
+Espécie: Humano
+Classes: Desconhecido
+Região: Atlas VI
+Campanha: O Ventre
+
+
+Caminho da imagem: /img/Nosferato.png
+Nome do personagem: Nosferato
+Gênero: Masculino
+Espécie: Humano
+Classes: Clérigo
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/O Nômade.png
+Nome do personagem: O Nômade
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Bruxo
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Old Lia.png
+Nome do personagem: Lia
+Gênero: Feminino
+Espécie: Humano
+Classes: Desconhecido
+Região: Metalurgis
+Campanha: Lia
+
+Caminho da imagem: /img/Pai do Arth.png
+Nome do personagem: Pai do Arth
+Gênero: Masculino
+Espécie: Draconato
+Classes: Paladino
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Parvatam.png
+Nome do personagem: Parvatam
+Gênero: Masculino
+Espécie: Entidade
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Rebeca.png
+Nome do personagem: Rebeca
+Gênero: Feminino
+Espécie: Humano
+Classes: Feiticeiro
+Região: Desconhecido
+Campanha: Lia
+
+Caminho da imagem: /img/Rhanny Gallahar.png
+Nome do personagem: Rhanny Gallahar
+Gênero: Feminino
+Espécie: Humano
+Classes: Mago
+Região: Pípiltin
+Campanha: A Falha Ancestral, Lia
+
+
+Caminho da imagem: /img/Sabnock.png
+Nome do personagem: Sabnock
+Gênero: Masculino
+Espécie: Humano
+Classes: Guerreiro
+Região: Kamir, Kataha
+Campanha: Lia
+
+
+Caminho da imagem: /img/Sif.png
+Nome do personagem: Sif
+Gênero: Feminino
+Espécie: Humano
+Classes: Desconhecido
+Região: Pípiltin
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Sofia Wattson.png
+Nome do personagem: Sofia Wattson
+Gênero: Feminino
+Espécie: Humano
+Classes: Mago
+Região: Pípiltin
+Campanha: A Falha Ancestral
+
+Caminho da imagem: /img/Spamton.png
+Nome do personagem: Spamton
+Gênero: Masculino
+Espécie: Demônio
+Classes: Criatura
+Região: Desconhecido
+Campanha: Lia
+
+Caminho da imagem: /img/Spike.png
+Nome do personagem: Spike
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Mictlan
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Syndeidisis.png
+Nome do personagem: Syneídisis
+Gênero: Desconhecido
+Espécie: Entidade
+Classes: Desconhecido
+Região: Desconhecido
+Campanha: A Falha Ancestral, Lia
+
+
+Caminho da imagem: /img/Tho-ka.png
+Nome do personagem: Tho-ka
+Gênero: Masculino
+Espécie: Demônio
+Classes: Desconhecido
+Região: Mictlan
+Campanha: Lia
+
+Caminho da imagem: /img/Tyrania.png
+Nome do personagem: Tyrania
+Gênero: Desconhecido
+Espécie: Demônio
+Classes: Criatura
+Região: Mictlan
+Campanha: Lia
+
+Caminho da imagem: /img/Tyrion.png
+Nome do personagem: Tyrion
+Gênero: Masculino
+Espécie: Humano
+Classes: Druida
+Região: Pípiltin
+Campanha: A Falha Ancestral, Lia
+
+Caminho da imagem: /img/Volga.png
+Nome do personagem: Volga
+Gênero: Masculino
+Espécie: Dragão
+Classes: Desconhecido
+Região: Montanha da Morte
+Campanha: Epifania
+
+Caminho da imagem: /img/Wallace.png
+Nome do personagem: Wallace
+Gênero: Masculino
+Espécie: Desconhecido
+Classes: Desconhecido
+Região: Gerity
+Campanha: Epifania
+
+Caminho da imagem: /img/Willian.png
+Nome do personagem: Willian
+Gênero: Masculino
+Espécie: Humano
+Classes: Paladino
+Região: Desconhecido
+Campanha: Epifania
+
+Caminho da imagem: /img/Yareth.png
+Nome do personagem: Yareth
+Gênero: Masculino
+Espécie: Humano
+Classes: Mago
+Região: Vale dos Dolvys
+Campanha: Epifania
+
+Caminho da imagem: /img/Zotikotita.png
+Nome do personagem: Zotikotita
+Gênero: Desconhecido
+Espécie: Entidade
+Classes: Desconhecido
+Região: Yalthar
+Campanha: A Falha Ancestral, Lia

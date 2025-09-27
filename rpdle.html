@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPGdle</title>
+    <style>
+        :root {
+            --cor-fundo: #121212;
+            --cor-texto: #e1e1e1;
+            --cor-caixa: #2c2c2c;
+            --cor-borda: #444;
+            --cor-verde: #4CAF50;
+            --cor-amarelo: #FFC107;
+            --cor-vermelho: #F44336;
+            --cor-sombra: #0000004d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--cor-amarelo);
+            text-shadow: 1px 1px 2px var(--cor-sombra);
+        }
+
+        #game-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #input-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        #guess-input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            background-color: var(--cor-caixa);
+            color: var(--cor-texto);
+            border: 1px solid var(--cor-borda);
+            border-radius: 5px;
+        }
+
+        #guess-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: var(--cor-amarelo);
+            color: var(--cor-fundo);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #guess-button:hover {
+            background-color: #ffd54f;
+        }
+
+        #results-header,
+        .result-row {
+            display: grid;
+            grid-template-columns: 50px 2fr 1fr 1fr 1fr 1fr 2fr;
+            text-align: center;
+            gap: 10px;
+            font-weight: bold;
+            align-items: center;
+        }
+
+        .header-cell {
+            padding: 5px;
+        }
+
+        .result-row {
+            background-color: var(--cor-caixa);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--cor-borda);
+        }
+
+        .result-cell {
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 40px;
+        }
+
+        .result-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--cor-borda);
+        }
+
+        .result-cell.nome-personagem {
+            background-color: var(--cor-borda);
+            font-weight: bold;
+        }
+
+        .correct {
+            background-color: var(--cor-verde);
+            color: white;
+        }
+
+        .partial {
+            background-color: var(--cor-amarelo);
+            color: var(--cor-fundo);
+        }
+
+        .incorrect {
+            background-color: var(--cor-vermelho);
+            color: white;
+        }
+
+        #win-message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: var(--cor-verde);
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        #results-container {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>RPGdle</h1>
+
+    <div id="game-container">
+        <form id="input-section" autocomplete="off">
+            <input list="character-list" id="guess-input" placeholder="Digite o nome de um personagem...">
+            <datalist id="character-list"></datalist>
+            <button id="guess-button" type="submit">Adivinhar</button>
+        </form>
+        <div id="win-message"></div>
+        <div id="results-header">
+            <div class="header-cell">Img</div>
+            <div class="header-cell">Personagem</div>
+            <div class="header-cell">Gênero</div>
+            <div class="header-cell">Espécie</div>
+            <div class="header-cell">Classe</div>
+            <div class="header-cell">Campanha</div>
+            <div class="header-cell">Região</div>
+        </div>
+        <div id="results-container">
+
+        </div>
+
+    </div>
+
+    <script>
+        const characterData = [
+            {
+                "imagem": "./img/Acalhueltecani.png",
+                "nome": "Acalhueltecani",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Mictlan"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Aegon.png",
+                "nome": "Aegon Astrea",
+                "genero": "Masculino",
+                "especie": "Elfo",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Vilarejos Tradicionais de Couatl"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Alduim.png",
+                "nome": "Alduim",
+                "genero": "Masculino",
+                "especie": "Dragão",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Monte Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Alice.png",
+                "nome": "Alice",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Vale dos Dolvys"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Ana Clara.png",
+                "nome": "Ana Clara",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Carvalho Negro"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Androssa.png",
+                "nome": "Androssa",
+                "genero": "Desconhecido",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Apali.png",
+                "nome": "Apali",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Dobrador de Fogo"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Avatar - A Procura Mundial"
+                ]
+            },
+            {
+                "imagem": "./img/Asmodeus.png",
+                "nome": "Asmodeus",
+                "genero": "Masculino",
+                "especie": "Diabo",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Nove Infernos de Baator"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Astaroth.png",
+                "nome": "Astaroth",
+                "genero": "Masculino",
+                "especie": "Draconato",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Local do Acidente"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Atlakamachtili.png",
+                "nome": "Atlakamachtili",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Mictlan"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Avna.png",
+                "nome": "Avna",
+                "genero": "Feminino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Baltazar.png",
+                "nome": "Baltazar",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Paladino"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Bellus.jpg",
+                "nome": "Bellus",
+                "genero": "Feminino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Berrial.png",
+                "nome": "Berrial",
+                "genero": "Masculino",
+                "especie": "Demônio",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Bestial de Sangue.png",
+                "nome": "Bestial de Sangue",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Boris.png",
+                "nome": "Boris",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Druida"
+                ],
+                "regiao": [
+                    "Farron"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Bryana.png",
+                "nome": "Bryana",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Druida"
+                ],
+                "regiao": [
+                    "Carvalho Negro"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Cadman.png",
+                "nome": "Cadman",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Callan.png",
+                "nome": "Callan",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Metalurgis"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Comandante Metalurgis.png",
+                "nome": "Comandante Metalurgis",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Metalurgis"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Cyborg.png",
+                "nome": "Cyborg",
+                "genero": "Desconhecido",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Dario.png",
+                "nome": "Dario",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Urgressus"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Diego.png",
+                "nome": "Diego",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Dorian.png",
+                "nome": "Dorian",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Druida"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Eillen.png",
+                "nome": "Eillen",
+                "genero": "Feminino",
+                "especie": "Elfo",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Farron"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Emma.png",
+                "nome": "Emma Ayers",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Metalurgis"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Enpap.png",
+                "nome": "Enpap",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Fafnir.png",
+                "nome": "Fãfnir",
+                "genero": "Masculino",
+                "especie": "Dragão",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Gyrak",
+                    "Atlas VI",
+                    "Yalthar"
+                ],
+                "campanha": [
+                    "O Ventre"
+                ]
+            },
+            {
+                "imagem": "./img/Falkon.png",
+                "nome": "Falkon",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Fiora.png",
+                "nome": "Fiora",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Ghanzo.png",
+                "nome": "Ghanzo",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Yalthar"
+                ],
+                "campanha": [
+                    "O Ventre"
+                ]
+            },
+            {
+                "imagem": "./img/Gorgon.png",
+                "nome": "Gorgon",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Yalthar"
+                ],
+                "campanha": [
+                    "O Ventre"
+                ]
+            },
+            {
+                "imagem": "./img/Gorila.png",
+                "nome": "Gorila",
+                "genero": "Desconhecido",
+                "especie": "Gorila",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Griffton.png",
+                "nome": "Griffton",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Farron"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Hakon.png",
+                "nome": "Hakon",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Hauris.png",
+                "nome": "Hauris",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Henri.png",
+                "nome": "Henri",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Haghnark",
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Hylia.png",
+                "nome": "Hylia",
+                "genero": "Feminino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Ichkapixki.png",
+                "nome": "Ichkapixki",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Mictlan"
+                ],
+                "campanha": [
+                    "Lia",
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Illidan.png",
+                "nome": "Illidan",
+                "genero": "Masculino",
+                "especie": "Elfo",
+                "classe": [
+                    "Ladino",
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Gerity"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Irene.png",
+                "nome": "Irene",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Isabelle.png",
+                "nome": "Isabelle",
+                "genero": "Feminino",
+                "especie": "Dragão",
+                "classe": [
+                    "Bardo"
+                ],
+                "regiao": [
+                    "Carvalho Negro"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Ivor.png",
+                "nome": "Ivor",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Piphet"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Jack Cooper.png",
+                "nome": "Jack Cooper",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Yharnam"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/James.png",
+                "nome": "Capitão James",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Haghnark"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Jane.png",
+                "nome": "Jane Gunnarsson Khirt",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Haghnark"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Joana.png",
+                "nome": "Joana",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Kaira.png",
+                "nome": "Kaira",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Dobrador de Água"
+                ],
+                "regiao": [
+                    "Cidade República"
+                ],
+                "campanha": [
+                    "Avatar - A Procura Mundial"
+                ]
+            },
+            {
+                "imagem": "./img/Kama de Kataha.png",
+                "nome": "Kama de Kataha",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro",
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Kataha"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Kataha.png",
+                "nome": "Kataha",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro",
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Kataha"
+                ],
+                "campanha": [
+                    "Lia",
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Keth.png",
+                "nome": "Keth",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Khaos.png",
+                "nome": "Khaos",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Kotetsu.png",
+                "nome": "Kotetsu",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Kataha",
+                    "Vilarejos Tradicionais de Couatl"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Laura.png",
+                "nome": "Laura",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Lina.png",
+                "nome": "Lina",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Yharnam"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Lioveti.png",
+                "nome": "Lioveti",
+                "genero": "Masculino",
+                "especie": "Lobo",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Metalurgis"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Lorde_do_submundo.png",
+                "nome": "Lorde do Submundo",
+                "genero": "Desconhecido",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Lucas.png",
+                "nome": "Lucas",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Luke.png",
+                "nome": "Luke",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Monge"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Maaldir.png",
+                "nome": "Maaldir",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Doom Shaper"
+                ],
+                "regiao": [
+                    "Haghnark"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Magnus.png",
+                "nome": "Magnus",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Urgressus"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Maria.png",
+                "nome": "Maria",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Markrus.png",
+                "nome": "Markrus",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Local do Acidente"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Mary.png",
+                "nome": "Mary Leifsson Kari",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Haghnark"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Matiza.png",
+                "nome": "Matiza",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Bárbaro"
+                ],
+                "regiao": [
+                    "Metalurgis"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Melina.png",
+                "nome": "Melina",
+                "genero": "Feminino",
+                "especie": "Couatl",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Vilarejos tradicionais de Couatl"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Morfeu.png",
+                "nome": "Morfeu",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Vilarejos tradicionais de Couatl"
+                ],
+                "campanha": [
+                    "O Ventre"
+                ]
+            },
+            {
+                "imagem": "./img/Morgan.png",
+                "nome": "Morgan",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Feiticeiro"
+                ],
+                "regiao": [
+                    "Vilarejos tradicionais de Couatl"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Nayahath.png",
+                "nome": "Nayahath",
+                "genero": "Feminino",
+                "especie": "Entidade",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Lia",
+                    "A Falha Ancestral",
+                    "O Ventre"
+                ]
+            },
+            {
+                "imagem": "./img/Niti.png",
+                "nome": "Niti",
+                "genero": "Feminino",
+                "especie": "Entidade",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Nog Freecs.png",
+                "nome": "Nog Freecs",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Atlas VI"
+                ],
+                "campanha": [
+                    "O Ventre"
+                ]
+            },
+            {
+                "imagem": "./img/Nosferato.png",
+                "nome": "Nosferato",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Clérigo"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/O Nômade.png",
+                "nome": "O Nômade",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Bruxo"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Old Lia.png",
+                "nome": "Lia",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Metalurgis"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Pai do Arth.png",
+                "nome": "Pai do Arth",
+                "genero": "Masculino",
+                "especie": "Draconato",
+                "classe": [
+                    "Paladino"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Parvatam.png",
+                "nome": "Parvatam",
+                "genero": "Masculino",
+                "especie": "Entidade",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Rebeca.png",
+                "nome": "Rebeca",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Feiticeiro"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Rhanny Gallahar.png",
+                "nome": "Rhanny Gallahar",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Sabnock.png",
+                "nome": "Sabnock",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Kamir",
+                    "Kataha"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Sif.png",
+                "nome": "Sif",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Sofia Wattson.png",
+                "nome": "Sofia Wattson",
+                "genero": "Feminino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral"
+                ]
+            },
+            {
+                "imagem": "./img/Spamton.png",
+                "nome": "Spamton",
+                "genero": "Masculino",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Spike.png",
+                "nome": "Spike",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Mictlan"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Syndeidisis.png",
+                "nome": "Syneídisis",
+                "genero": "Desconhecido",
+                "especie": "Entidade",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Tho-ka.png",
+                "nome": "Tho-ka",
+                "genero": "Masculino",
+                "especie": "Demônio",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Mictlan"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Tyrania.png",
+                "nome": "Tyrania",
+                "genero": "Desconhecido",
+                "especie": "Demônio",
+                "classe": [
+                    "Criatura"
+                ],
+                "regiao": [
+                    "Mictlan"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Tyrion.png",
+                "nome": "Tyrion",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Druida"
+                ],
+                "regiao": [
+                    "Pípiltin"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Volga.png",
+                "nome": "Volga",
+                "genero": "Masculino",
+                "especie": "Dragão",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Montanha da Morte"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Wallace.png",
+                "nome": "Wallace",
+                "genero": "Masculino",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Gerity"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Willian.png",
+                "nome": "Willian",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Paladino"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Yareth.png",
+                "nome": "Yareth",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Mago"
+                ],
+                "regiao": [
+                    "Vale dos Dolvys"
+                ],
+                "campanha": [
+                    "Epifania"
+                ]
+            },
+            {
+                "imagem": "./img/Zotikotita.png",
+                "nome": "Zotikotita",
+                "genero": "Desconhecido",
+                "especie": "Entidade",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Yalthar"
+                ],
+                "campanha": [
+                    "A Falha Ancestral",
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Sorgan.png",
+                "nome": "Sorgan",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Feiticeiro"
+                ],
+                "regiao": [
+                    "Vilarejos Tradicionais de Couatl"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Ehrlich.png",
+                "nome": "Ehrlich",
+                "genero": "Masculino",
+                "especie": "Demônio",
+                "classe": [
+                    "Amaldiçoado"
+                ],
+                "regiao": [
+                    "Kataha"
+                ],
+                "campanha": [
+                    "Lia"
+                ]
+            },
+            {
+                "imagem": "./img/Cappu Cappu Chino.png",
+                "nome": "Cappu Cappu Chino",
+                "genero": "Desconhecido",
+                "especie": "Desconhecido",
+                "classe": [
+                    "Ladino"
+                ],
+                "regiao": [
+                    "Monte Cappuccino"
+                ],
+                "campanha": [
+                    "O Banquete"
+                ]
+            },
+            {
+                "imagem": "./img/Giovanni.png",
+                "nome": "Giovanni",
+                "genero": "Masculino",
+                "especie": "Humano",
+                "classe": [
+                    "Guerreiro"
+                ],
+                "regiao": [
+                    "Desconhecido"
+                ],
+                "campanha": [
+                    "O Banquete"
+                ]
+            },
+            {
+                "imagem": "./img/Zyn.png",
+                "nome": "Zyn",
+                "genero": "Desconhecido",
+                "especie": "Raça Primordial",
+                "classe": [
+                    "Desconhecido"
+                ],
+                "regiao": [
+                    "Yalthar"
+                ],
+                "campanha": [
+                    "O Ventre",
+                    "Lia"
+                ]
+            },
+        ];
+
+        let secretCharacter = null;
+        let characterNames = [];
+        let attempts = 0;
+        let gameOver = false;
+
+        const guessForm = document.getElementById('input-section');
+        const guessInput = document.getElementById('guess-input');
+        const characterDatalist = document.getElementById('character-list');
+        const resultsContainer = document.getElementById('results-container');
+        const winMessage = document.getElementById('win-message');
+
+        function initializeGame() {
+            secretCharacter = characterData[Math.floor(Math.random() * characterData.length)];
+            characterNames = characterData.map(char => char.nome);
+            characterDatalist.innerHTML = characterNames.map(name => `<option value="${name}"></option>`).join('');
+            console.log("Personagem secreto (para testes):", secretCharacter.nome);
+        }
+
+        function compareArrays(guessArray, secretArray) {
+            const sortedGuess = [...guessArray].sort();
+            const sortedSecret = [...secretArray].sort();
+
+            if (sortedGuess.length === sortedSecret.length && sortedGuess.every((val, index) => val === sortedSecret[index])) {
+                return 'correct';
+            }
+            if (guessArray.some(item => secretArray.includes(item))) {
+                return 'partial';
+            }
+            return 'incorrect';
+        }
+
+        function displayResult(guess) {
+            const guessData = characterData.find(char => char.nome.toLowerCase() === guess.toLowerCase());
+            if (!guessData) {
+                alert("Personagem não encontrado. Por favor, escolha um da lista.");
+                return;
+            }
+
+            attempts++;
+            const resultRow = document.createElement('div');
+            resultRow.classList.add('result-row');
+
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('result-image-container');
+            const imageCell = document.createElement('img');
+            imageCell.classList.add('result-image');
+            imageCell.src = guessData.imagem;
+            imageCell.alt = guessData.nome;
+            imageContainer.appendChild(imageCell);
+
+            const nameCell = document.createElement('div');
+            nameCell.classList.add('result-cell', 'nome-personagem');
+            nameCell.textContent = guessData.nome;
+
+            const generoCell = document.createElement('div');
+            generoCell.classList.add('result-cell', (guessData.genero === secretCharacter.genero ? 'correct' : 'incorrect'));
+            generoCell.textContent = guessData.genero;
+
+            const especieCell = document.createElement('div');
+            especieCell.classList.add('result-cell', (guessData.especie === secretCharacter.especie ? 'correct' : 'incorrect'));
+            especieCell.textContent = guessData.especie;
+
+            // Lógica de Classe (agora como lista)
+            const classeCell = document.createElement('div');
+            classeCell.classList.add('result-cell', compareArrays(guessData.classe, secretCharacter.classe));
+            classeCell.textContent = guessData.classe.join(', ');
+
+            const campanhaCell = document.createElement('div');
+            campanhaCell.classList.add('result-cell', compareArrays(guessData.campanha, secretCharacter.campanha));
+            campanhaCell.textContent = guessData.campanha.join(', ');
+
+            const regiaoCell = document.createElement('div');
+            regiaoCell.classList.add('result-cell', compareArrays(guessData.regiao, secretCharacter.regiao));
+            regiaoCell.textContent = guessData.regiao.join(', ');
+
+            resultRow.appendChild(imageContainer);
+            resultRow.appendChild(nameCell);
+            resultRow.appendChild(generoCell);
+            resultRow.appendChild(especieCell);
+            resultRow.appendChild(classeCell);
+            resultRow.appendChild(campanhaCell);
+            resultRow.appendChild(regiaoCell);
+
+            resultsContainer.appendChild(resultRow);
+
+            if (guessData.nome === secretCharacter.nome) {
+                gameOver = true;
+                winMessage.textContent = `Parabéns! Você acertou em ${attempts} tentativa(s)!`;
+                winMessage.style.display = 'block';
+                guessInput.disabled = true;
+                document.getElementById('guess-button').disabled = true;
+            }
+        }
+
+        guessForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (gameOver) return;
+            const userGuess = guessInput.value.trim();
+            if (userGuess && characterNames.includes(userGuess)) {
+                displayResult(userGuess);
+                guessInput.value = '';
+            } else if (userGuess) {
+                alert("Personagem inválido. Por favor, escolha um nome da lista de sugestões.");
+            }
+        });
+
+        window.onload = initializeGame;
+    </script>
+</body>
+
+</html>

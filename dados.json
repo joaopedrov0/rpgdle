@@ -1,0 +1,76 @@
+{
+    "imagem": "./img/Sorgan.png",
+    "nome": "Sorgan",
+    "genero": "Masculino",
+    "especie": "Humano",
+    "classe": [
+        "Feiticeiro"
+    ],
+    "regiao": [
+        "Vilarejos Tradicionais de Couatl"
+    ],
+    "campanha": [
+        "Lia"
+    ]
+},
+{
+    "imagem": "./img/Ehrlich.png",
+    "nome": "Ehrlich",
+    "genero": "Masculino",
+    "especie": "Demônio",
+    "classe": [
+        "Amaldiçoado"
+    ],
+    "regiao": [
+        "Kataha"
+    ],
+    "campanha": [
+        "Lia"
+    ]
+},
+{
+    "imagem": "./img/Cappu Cappu Chino.png",
+    "nome": "Cappu Cappu Chino",
+    "genero": "Desconhecido",
+    "especie": "Desconhecido",
+    "classe": [
+        "Ladino"
+    ],
+    "regiao": [
+        "Monte Cappuccino"
+    ],
+    "campanha": [
+        "O Banquete"
+    ]
+},
+{
+    "imagem": "./img/Giovanni.png",
+    "nome": "Giovanni",
+    "genero": "Masculino",
+    "especie": "Humano",
+    "classe": [
+        "Guerreiro"
+    ],
+    "regiao": [
+        "Desconhecido"
+    ],
+    "campanha": [
+        "O Banquete"
+    ]
+},
+{
+    "imagem": "./img/Zyn.png",
+    "nome": "Zyn",
+    "genero": "Desconhecido",
+    "especie": "Raça Primordial",
+    "classe": [
+        "Desconhecido"
+    ],
+    "regiao": [
+        "Yalthar"
+    ],
+    "campanha": [
+        "O Ventre",
+        "Lia"
+    ]
+},
